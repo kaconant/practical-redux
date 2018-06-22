@@ -1,5 +1,5 @@
 let dogsDefaultState = {
-	dogList: null,
+	randomDog: "",
 	isLoading: false,
 	error: null
 }
@@ -10,7 +10,7 @@ const dogsReducer = (state = dogsDefaultState, action) => {
 	}
 	
 	if (action.type == "DOG_SEARCH_INITIATED") {
-		stateCopy.dogList = 
+		stateCopy.randomDog = null;
 		stateCopy.isLoading = true;
 		stateCopy.error = null;
 		return stateCopy;
@@ -22,7 +22,7 @@ const dogsReducer = (state = dogsDefaultState, action) => {
 		return stateCopy
 	} else if (action.type == "DOGS_ERROR") {
 		let { error } = action;
-		stateCopy.randomDog = "";
+		stateCopy.randomDog = null;
 		stateCopy.isLoading = false;
 		stateCopy.error = error;
 		return stateCopy

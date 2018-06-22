@@ -7,17 +7,17 @@ let dogsSearchAction = () => {
 	$.ajax({
 		method: "GET",
 		url: "https://dog.ceo/api/breeds/image/random"
-	}).then( (dogList) => {
+	}).then( (randomDog) => {
 		// Asynchronously dispatch another action when the movies come back from the API
-		if (dogList.error) {
+		if (randomDog.error) {
 			store.dispatch({
 				type: "DOGS_ERROR",
-				error: dogList.error
+				error: randomDog.error
 			});
 		} else {
 			store.dispatch({
 				type: "DOGS_RETURNED",
-				randomDog: dogList.message
+				randomDog: randomDog.message
 			});
 		}	
 	} )

@@ -1,19 +1,21 @@
 const renderDogsApp = () => {
 	let { dogs } = store.getState();
-	let { isLoading, randomDog, error} = dogs;
-	
+	let { isLoading, randomDog, error } = dogs;
+	let randomDogPic = randomDog? `<img src=${randomDog} />` : `<div> </div>`
+
 	return `
 		<div>
 		<br>
 		<h1>Wanna doggo?</h1>
 		<button id="dog-search" onclick="dogsSearchAction()">Generate Doggo</button>
+		<br>
 		${isLoading
 			? `	<h3> LOADING... </h3>`
 			: error
 				? `<h1>${error}</h1>`
-				: `<img src=${randomDog} />`
+				: randomDogPic
 		}
-		<div>			
+		</div>			
 		`
 }
 
