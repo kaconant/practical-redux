@@ -1,33 +1,20 @@
 const renderDogsApp = () => {
 	let { dogs } = store.getState();
-	let { isLoading, dogList, error} = dogs;
-
-	console.log(dogs)
+	let { isLoading, randomDog, error} = dogs;
+	
 	return `
+		<div>
 		<br>
-		<div class="text-center">
-		<button id="dog-search" onclick="dogsSearchAction(this.value)">Generate Doggo</button>
+		<h1>Wanna doggo?</h1>
+		<button id="dog-search" onclick="dogsSearchAction()">Generate Doggo</button>
 		${isLoading
-			? `	<h1> LOADING... </h1>`
+			? `	<h3> LOADING... </h3>`
 			: error
 				? `<h1>${error}</h1>`
-				: `<div>
-					${dogList.map((dog)=>{
-						const renderDog = (dog) => {
-							let { message } = dog
-							return `
-								<div>
-									<div>
-										<img src=${message} style="width: 100px;" />
-									</div>
-								</div>
-							`
-						}
-					}).join('')}
-					</div>`
+				: `<img src=${dogs.randomDog} />`
 		}
-	</div>
-`
+		<div>			
+		`
 }
 
 /*

@@ -1,4 +1,4 @@
-let dogsSearchAction = (searchString) => {
+let dogsSearchAction = () => {
 	// Before any search happens, we tell the reducer that we're starting a search
 	store.dispatch({
 		type: "DOG_SEARCH_INITIATED"
@@ -7,17 +7,17 @@ let dogsSearchAction = (searchString) => {
 	$.ajax({
 		method: "GET",
 		url: "https://dog.ceo/api/breeds/image/random"
-	}).then( (dogData) => {
+	}).then( (dogList) => {
 		// Asynchronously dispatch another action when the movies come back from the API
-		if (dogData.Error) {
+		if (dogList.error) {
 			store.dispatch({
 				type: "DOGS_ERROR",
-				error: dogData.Error
+				error: dogList.error
 			});
 		} else {
 			store.dispatch({
 				type: "DOGS_RETURNED",
-				dogs: dogData.message
+				randomDog: dogList.message
 			});
 		}	
 	} )
