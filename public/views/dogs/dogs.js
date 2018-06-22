@@ -11,7 +11,7 @@ const renderDogsApp = () => {
 			? `	<h3> LOADING... </h3>`
 			: error
 				? `<h1>${error}</h1>`
-				: `<img src=${dogs.randomDog} />`
+				: `<img src=${randomDog} />`
 		}
 		<div>			
 		`

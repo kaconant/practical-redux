@@ -10,6 +10,7 @@ const dogsReducer = (state = dogsDefaultState, action) => {
 	}
 	
 	if (action.type == "DOG_SEARCH_INITIATED") {
+		stateCopy.dogList = 
 		stateCopy.isLoading = true;
 		stateCopy.error = null;
 		return stateCopy;
