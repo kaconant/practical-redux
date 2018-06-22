@@ -9,12 +9,12 @@ const renderMoviesApp = () => {
 			${isLoading 
 				? `<h1> LOADING... </h1>`
 				: error
-				  ? `<h1>${error}</h1>`
-				  : `<div>
-				   		${movieList.map((movie)=>{
-				   			return renderMovie(movie)
-				   		}).join('')}
-				     </div>`
+					? `<h1>${error}</h1>`
+					: `<div>
+						${movieList.map((movie)=>{
+							return renderMovie(movie)
+						}).join('')}
+						</div>`
 			}
 		</div>
 	`
